@@ -1,0 +1,26 @@
+package com.javarush.task.task20.task2021;
+
+import java.io.*;
+
+/* 
+Сериализация под запретом
+*/
+public class Solution implements Serializable {
+    private Solution() {
+    }
+
+
+    public static class SubSolution extends Solution {
+        private void writeObject(ObjectOutputStream stream) throws IOException {
+            throw new NotSerializableException();
+        }
+
+        private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException{
+            throw new NotSerializableException();
+        }
+
+        public static void main(String[] args) {
+
+        }
+    }
+}
